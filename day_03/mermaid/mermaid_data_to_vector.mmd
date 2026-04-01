@@ -1,0 +1,51 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8EDF3",
+    "primaryTextColor": "#0B1E3D",
+    "primaryBorderColor": "#8696b0",
+    "lineColor": "#0B1E3D",
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "28px"
+  },
+  "flowchart": { "nodeSpacing": 80, "rankSpacing": 100, "padding": 45 }
+}}%%
+graph LR
+    subgraph INPUT["Inputs"]
+        direction TB
+        DOC["📄 Document<br/>Collection"]
+        QUERY["❓ User<br/>Query"]
+    end
+
+    subgraph PROCESS["Embedding Model"]
+        direction TB
+        PRE["Preprocessing<br/>Tokenization,<br/>Normalization"]
+        VEC["Vectorization<br/>Feature Extraction,<br/>Model Inference"]
+        PRE --> VEC
+    end
+
+    subgraph OUTPUT["Vector Representations"]
+        direction TB
+        DEMB["<b>Document Embeddings</b><br/>[0.12, -0.45, 0.88, ..., 0.21]<br/>...<br/>[0.33, 0.12, -0.67, ..., 0.55]"]
+        QEMB["<b>Query Embedding</b><br/>[-0.09, 0.77, 0.34, ..., -0.11]"]
+    end
+
+    DENSE1["Dense Vectors<br/>(High-Dimensional)"]
+
+    DOC --> PROCESS
+    QUERY --> PROCESS
+    VEC --> DEMB
+    VEC --> QEMB
+    DEMB --> DENSE1
+    QEMB --> DENSE1
+
+    style INPUT fill:#F0F9FF,stroke:#0891B2,stroke-width:3px
+    style PROCESS fill:#E8EDF3,stroke:#8696b0,stroke-width:3px
+    style OUTPUT fill:#D1FAE5,stroke:#059669,stroke-width:3px
+    style DOC fill:#DBEAFE,stroke:#2563EB,stroke-width:2px,color:#0B1E3D
+    style QUERY fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#0B1E3D
+    style PRE fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style VEC fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style DEMB fill:#D1FAE5,stroke:#059669,color:#0B1E3D
+    style QEMB fill:#D1FAE5,stroke:#059669,color:#0B1E3D
+    style DENSE1 fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff

@@ -1,0 +1,39 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8EDF3",
+    "primaryTextColor": "#1a2744",
+    "primaryBorderColor": "#8696b0",
+    "lineColor": "#1a2744",
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "17px"
+  },
+  "flowchart": {
+    "nodeSpacing": 50,
+    "rankSpacing": 65,
+    "padding": 30
+  }
+}}%%
+
+graph TD
+    PARENT["<b>Parent Agent</b><br/>Context Window A"]
+
+    SA1["<b>Sub-Agent: Writer</b><br/>Context Window B"]
+    SA2["<b>Sub-Agent: Coder</b><br/>Context Window C"]
+    SA3["<b>Sub-Agent: Analyzer</b><br/>Context Window D"]
+
+    SHARED["<b>Shared Items</b><br/>CLAUDE.md · Feature specs"]
+
+    PARENT -->|"Spins up"| SA1
+    PARENT -->|"Spins up"| SA2
+    PARENT -->|"Spins up"| SA3
+
+    SHARED -.->|"always accessible"| SA1
+    SHARED -.->|"always accessible"| SA2
+    SHARED -.->|"always accessible"| SA3
+
+    style PARENT fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style SA1 fill:#E8F4FD,stroke:#0891B2,stroke-width:2px,color:#1a2744
+    style SA2 fill:#D1FAE5,stroke:#059669,stroke-width:2px,color:#1a2744
+    style SA3 fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#1a2744
+    style SHARED fill:#FEF3C7,stroke:#c4a74a,stroke-width:2px,color:#1a2744

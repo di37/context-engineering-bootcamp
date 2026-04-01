@@ -1,0 +1,28 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8EDF3",
+    "primaryTextColor": "#1a2744",
+    "primaryBorderColor": "#8696b0",
+    "lineColor": "#1a2744",
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "18px"
+  },
+  "flowchart": {
+    "nodeSpacing": 60,
+    "rankSpacing": 70,
+    "padding": 30
+  }
+}}%%
+
+graph LR
+    A["<b>ideas.md</b><br/>Raw voice-dictated notes<br/><i>Unstructured brain dump</i>"]
+    B["<b>ideas_v2.md</b><br/>Structured with headings<br/><i>Organized intermediate doc</i>"]
+    C["<b>CLAUDE.md</b><br/>Final system prompt<br/><i>Production-ready</i>"]
+
+    A -->|"Claude: structure this"| B
+    B -->|"Claude: create CLAUDE.md<br/>using ideas_v2.md"| C
+
+    style A fill:#FEE2E2,stroke:#DC2626,stroke-width:2px,color:#1a2744
+    style B fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#1a2744
+    style C fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff

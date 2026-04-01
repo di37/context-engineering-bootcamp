@@ -1,0 +1,30 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8EDF3",
+    "primaryTextColor": "#0B1E3D",
+    "primaryBorderColor": "#8696b0",
+    "lineColor": "#0B1E3D",
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "24px"
+  },
+  "flowchart": { "nodeSpacing": 80, "rankSpacing": 100, "padding": 40 }
+}}%%
+graph LR
+    CW["<b>Context<br/>Window</b>"]
+
+    W["<b>WRITE</b><br/>Move data OUT<br/>Store in memory/files<br/>for later retrieval"]
+    S["<b>SELECT</b><br/>Pull data INTO context<br/>RAG / keyword matching"]
+    C["<b>COMPRESS</b><br/>Summarize contents<br/>50K tokens → 5K tokens"]
+    I["<b>ISOLATE</b><br/>Create separate context<br/>for sub-agents"]
+
+    CW -->|"store"| W
+    S -->|"retrieve"| CW
+    CW -->|"shrink"| C
+    CW -.->|"spawn"| I
+
+    style CW fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style W fill:#DBEAFE,stroke:#2563EB,stroke-width:3px,color:#0B1E3D
+    style S fill:#D1FAE5,stroke:#059669,stroke-width:3px,color:#0B1E3D
+    style C fill:#FEF3C7,stroke:#D97706,stroke-width:3px,color:#0B1E3D
+    style I fill:#FEE2E2,stroke:#DC2626,stroke-width:3px,color:#0B1E3D

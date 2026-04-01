@@ -1,0 +1,42 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8EDF3",
+    "primaryTextColor": "#0B1E3D",
+    "primaryBorderColor": "#8696b0",
+    "lineColor": "#0B1E3D",
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "16px"
+  },
+  "flowchart": { "nodeSpacing": 50, "rankSpacing": 60, "padding": 25 }
+}}%%
+graph TD
+    TASK["🎯 Current Task"]
+
+    TASK --> Q1{"Analyzing results<br/>of past experiments?"}
+    TASK --> Q2{"Sub-agent performing<br/>code review or research?"}
+    TASK --> Q3{"Main context window<br/>too full for a subtask?"}
+
+    Q1 -->|Yes| ISO1["🔒 Isolate into sub-agent"]
+    Q2 -->|Yes| ISO2["🔒 Isolate into sub-agent"]
+    Q3 -->|Yes| ISO3["🔒 Isolate into sub-agent"]
+
+    ISO1 --> R1["Main task context<br/>would pollute the analysis"]
+    ISO2 --> R2["Sub-agent needs a<br/>clean, focused context"]
+    ISO3 --> R3["Prevents context rot<br/>in the main task"]
+
+    Q1 -->|No| KEEP["✅ Keep in main<br/>context window"]
+    Q2 -->|No| KEEP
+    Q3 -->|No| KEEP
+
+    style TASK fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style Q1 fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#0B1E3D
+    style Q2 fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#0B1E3D
+    style Q3 fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#0B1E3D
+    style ISO1 fill:#DBEAFE,stroke:#2563EB,stroke-width:2px,color:#0B1E3D
+    style ISO2 fill:#DBEAFE,stroke:#2563EB,stroke-width:2px,color:#0B1E3D
+    style ISO3 fill:#DBEAFE,stroke:#2563EB,stroke-width:2px,color:#0B1E3D
+    style R1 fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style R2 fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style R3 fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style KEEP fill:#D1FAE5,stroke:#059669,stroke-width:2px,color:#0B1E3D

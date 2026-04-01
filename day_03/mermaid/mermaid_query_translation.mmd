@@ -1,0 +1,27 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8EDF3",
+    "primaryTextColor": "#0B1E3D",
+    "primaryBorderColor": "#8696b0",
+    "lineColor": "#0B1E3D",
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "24px"
+  },
+  "flowchart": { "nodeSpacing": 70, "rankSpacing": 90, "padding": 40 }
+}}%%
+graph LR
+    Q["<b>User Query</b>"]
+
+    Q --> MQ["<b>Multi-Query</b><br/>Rephrase 3-5 ways<br/>Retrieve for each<br/>Union results"]
+    Q --> RF["<b>RAG Fusion</b><br/>Multi-query + RRF<br/>Consolidated<br/>ranking"]
+    Q --> DEC["<b>Decomposition</b><br/>Break into<br/>sub-questions<br/>Solve each"]
+    Q --> SB["<b>Step-Back</b><br/>Ask abstract<br/>question first<br/>Then specific"]
+    Q --> HY["<b>HyDE</b><br/>Generate<br/>hypothetical doc<br/>Embed that instead"]
+
+    style Q fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style MQ fill:#DBEAFE,stroke:#2563EB,stroke-width:2px,color:#0B1E3D
+    style RF fill:#D1FAE5,stroke:#059669,stroke-width:2px,color:#0B1E3D
+    style DEC fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#0B1E3D
+    style SB fill:#FEE2E2,stroke:#DC2626,stroke-width:2px,color:#0B1E3D
+    style HY fill:#E8EDF3,stroke:#8696b0,stroke-width:2px,color:#0B1E3D

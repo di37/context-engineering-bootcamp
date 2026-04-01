@@ -1,0 +1,21 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8EDF3",
+    "primaryTextColor": "#0B1E3D",
+    "primaryBorderColor": "#8696b0",
+    "lineColor": "#0B1E3D",
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "18px"
+  },
+  "flowchart": { "nodeSpacing": 60, "rankSpacing": 70, "padding": 30 }
+}}%%
+graph LR
+    Q["User Query:<br/>'How much profit did Microsoft<br/>make in 2025 vs 2024?'"] --> QE["Query Embedding<br/>(384-dim vector)"]
+    QE --> FAISS["FAISS Index<br/>(583 chunk vectors)"]
+    FAISS --> TOP["Top-5 Chunks<br/>(by L2 distance)"]
+
+    style Q fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#0B1E3D
+    style QE fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style FAISS fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style TOP fill:#D1FAE5,stroke:#059669,stroke-width:2px,color:#0B1E3D

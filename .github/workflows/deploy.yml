@@ -1,0 +1,58 @@
+name: Deploy Typst PDFs to Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          lfs: true
+
+      - name: Setup Typst
+        uses: typst-community/setup-typst@v4
+
+      - name: Compile Typst to PDF
+        run: |
+          mkdir -p dist
+          for day_dir in day_*/; do
+            day=$(basename "$day_dir")
+            typ_file="${day_dir}${day}_notes.typ"
+            if [ -f "$typ_file" ]; then
+              echo "Compiling $typ_file ..."
+              typst compile "$typ_file" "dist/${day}_notes.pdf"
+            fi
+          done
+
+      - name: Copy index.html
+        run: cp index.html dist/index.html
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

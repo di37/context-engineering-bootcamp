@@ -1,0 +1,35 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8EDF3",
+    "primaryTextColor": "#1a2744",
+    "primaryBorderColor": "#8696b0",
+    "lineColor": "#1a2744",
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "17px"
+  },
+  "flowchart": {
+    "nodeSpacing": 50,
+    "rankSpacing": 65,
+    "padding": 30
+  }
+}}%%
+
+graph TD
+    ROOT["<b>repo/.agents/agents.md</b><br/>Master Orchestrator<br/><i>Research paper writing</i>"]
+
+    W["<b>writing/agents.md</b><br/>Writing Sub-Agent<br/><i>Drafts, prose, citations</i>"]
+    C["<b>coding/agents.md</b><br/>Code Execution Sub-Agent<br/><i>Experiments, scripts</i>"]
+    A["<b>analysis/agents.md</b><br/>Results Analysis Sub-Agent<br/><i>Stats, interpretation</i>"]
+    R["<b>coding/runner/agents.md</b><br/>RunPod Code Runner<br/><i>GPU execution</i>"]
+
+    ROOT --> W
+    ROOT --> C
+    ROOT --> A
+    C --> R
+
+    style ROOT fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style W fill:#E8F4FD,stroke:#0891B2,stroke-width:2px,color:#1a2744
+    style C fill:#D1FAE5,stroke:#059669,stroke-width:2px,color:#1a2744
+    style A fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#1a2744
+    style R fill:#EDE9FE,stroke:#7C3AED,stroke-width:2px,color:#1a2744

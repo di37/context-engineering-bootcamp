@@ -1,0 +1,49 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8EDF3",
+    "primaryTextColor": "#0B1E3D",
+    "primaryBorderColor": "#8696b0",
+    "lineColor": "#0B1E3D",
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "22px"
+  },
+  "flowchart": { "nodeSpacing": 60, "rankSpacing": 80, "padding": 35 }
+}}%%
+graph TD
+    Q["<b>User Question</b>"]
+    ROUTE{"Route:<br/>Vector Store?<br/>Web Search?<br/>LLM Fallback?"}
+    RET["Retrieve<br/>Top-K Chunks"]
+    WEB["Web Search"]
+    GRADE{"Grade Documents:<br/>Relevant?"}
+    GEN["Generate Answer"]
+    HALL{"Check:<br/>Hallucinations?"}
+    REL{"Check:<br/>Answers Question?"}
+    REWRITE["Rewrite Query"]
+    ANS["<b>Return Answer</b>"]
+
+    Q --> ROUTE
+    ROUTE -->|"Vector Store"| RET
+    ROUTE -->|"Web Search"| WEB
+    ROUTE -->|"LLM Fallback"| GEN
+    RET --> GRADE
+    WEB --> GRADE
+    GRADE -->|"Relevant ✓"| GEN
+    GRADE -->|"Not Relevant ✗"| REWRITE
+    REWRITE --> WEB
+    GEN --> HALL
+    HALL -->|"Faithful ✓"| REL
+    HALL -->|"Hallucinating ✗"| GEN
+    REL -->|"Relevant ✓"| ANS
+    REL -->|"Off-topic ✗"| REWRITE
+
+    style Q fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style ROUTE fill:#FEF3C7,stroke:#D97706,stroke-width:3px,color:#0B1E3D
+    style RET fill:#DBEAFE,stroke:#2563EB,stroke-width:2px,color:#0B1E3D
+    style WEB fill:#DBEAFE,stroke:#2563EB,stroke-width:2px,color:#0B1E3D
+    style GRADE fill:#FEF3C7,stroke:#D97706,stroke-width:3px,color:#0B1E3D
+    style GEN fill:#E8EDF3,stroke:#8696b0,stroke-width:2px,color:#0B1E3D
+    style HALL fill:#FEE2E2,stroke:#DC2626,stroke-width:3px,color:#0B1E3D
+    style REL fill:#FEE2E2,stroke:#DC2626,stroke-width:3px,color:#0B1E3D
+    style REWRITE fill:#E8EDF3,stroke:#8696b0,stroke-width:2px,color:#0B1E3D
+    style ANS fill:#D1FAE5,stroke:#059669,stroke-width:3px,color:#0B1E3D

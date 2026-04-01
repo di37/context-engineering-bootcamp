@@ -1,0 +1,28 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8EDF3",
+    "primaryTextColor": "#0B1E3D",
+    "primaryBorderColor": "#8696b0",
+    "lineColor": "#0B1E3D",
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "18px"
+  },
+  "flowchart": { "nodeSpacing": 50, "rankSpacing": 60, "padding": 25 }
+}}%%
+graph TD
+    subgraph PAIRS["For each of K pairs"]
+        P["[SEP] query tokens [SEP]<br/>chunk tokens [CLS]"]
+        P --> CE["Cross-Encoder Model"]
+        CE --> S["Relevance Score<br/>e.g., 4.88, 0.58, -0.2"]
+    end
+
+    S --> SORT["Sort by score<br/>descending"]
+    SORT --> RANKED["Reranked chunks<br/>(best first)"]
+
+    style PAIRS fill:#F0F9FF,stroke:#0891B2,stroke-width:2px
+    style P fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style CE fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style S fill:#FEF3C7,stroke:#D97706,color:#0B1E3D
+    style SORT fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style RANKED fill:#D1FAE5,stroke:#059669,stroke-width:2px,color:#0B1E3D

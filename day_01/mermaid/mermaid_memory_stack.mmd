@@ -1,0 +1,62 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8EDF3",
+    "primaryTextColor": "#1a2744",
+    "primaryBorderColor": "#8696b0",
+    "lineColor": "#1a2744",
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "18px"
+  },
+  "flowchart": {
+    "nodeSpacing": 50,
+    "rankSpacing": 70,
+    "padding": 30
+  }
+}}%%
+
+graph TD
+    HEADER1["<b>ALWAYS IN CONTEXT</b><br/><i>Static State — loaded every request</i>"]
+
+    A["📋 <b>Recent Feedback History</b><br/>Last N interactions"]
+    B["📧 <b>Last 20 Email Interactions</b><br/>Full content, most recent"]
+
+    HEADER1 --> A
+    HEADER1 --> B
+
+    C["📊 <b>Summarized 1-Year History</b><br/>10,000 threads → markdown summary"]
+    D["📚 <b>Compressed Course Catalog</b><br/>100+ courses → concise metadata"]
+
+    A --> C
+    B --> D
+
+    HEADER2["<b>DYNAMIC RAG RETRIEVAL</b><br/><i>On-Demand — fetched per query</i>"]
+
+    C --> HEADER2
+    D --> HEADER2
+
+    E["🔍 <b>Most Relevant Courses</b><br/>For current query"]
+    F["💬 <b>Most Relevant Past Email</b><br/>For current conversation"]
+
+    HEADER2 --> E
+    HEADER2 --> F
+
+    G["⭐ <b>Most Relevant Feedback</b><br/>For current context"]
+
+    E --> G
+    F --> G
+
+    G --> CTX
+
+    CTX["<b>⬇ ASSEMBLED CONTEXT</b><br/><i>Fed into LLM context window</i>"]
+
+    style HEADER1 fill:#c4a74a,stroke:#c4a74a,color:#ffffff
+    style HEADER2 fill:#4a8c5c,stroke:#4a8c5c,color:#ffffff
+    style CTX fill:#1a2744,stroke:#1a2744,color:#ffffff
+    style A fill:#fffde7,stroke:#c4a74a,stroke-width:2px,color:#1a2744
+    style B fill:#fffde7,stroke:#c4a74a,stroke-width:2px,color:#1a2744
+    style C fill:#fffde7,stroke:#c4a74a,stroke-width:2px,color:#1a2744
+    style D fill:#fffde7,stroke:#c4a74a,stroke-width:2px,color:#1a2744
+    style E fill:#e8f5e9,stroke:#4a8c5c,stroke-width:2px,color:#1a2744
+    style F fill:#e8f5e9,stroke:#4a8c5c,stroke-width:2px,color:#1a2744
+    style G fill:#e8f5e9,stroke:#4a8c5c,stroke-width:2px,color:#1a2744

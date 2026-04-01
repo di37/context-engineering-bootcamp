@@ -1,0 +1,22 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8EDF3",
+    "primaryTextColor": "#0B1E3D",
+    "primaryBorderColor": "#8696b0",
+    "lineColor": "#0B1E3D",
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "28px"
+  },
+  "flowchart": { "nodeSpacing": 100, "rankSpacing": 120, "padding": 50 }
+}}%%
+graph LR
+    A1["<b>Agent 1</b><br/>Research"] <-->|Two-way<br/>MCP| CB["<b>CENTRAL BRAIN</b><br/>Orchestrator<br/>No execution tools<br/>Only delegates"] <-->|Two-way<br/>MCP| A2["<b>Agent 2</b><br/>Email"]
+    A3["<b>Agent 3</b><br/>Analytics"] <-->|Two-way<br/>MCP| CB
+    A4["<b>Agent 4</b><br/>Dev Ops"] <-->|Two-way<br/>MCP| CB
+
+    style CB fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style A1 fill:#DBEAFE,stroke:#2563EB,stroke-width:3px,color:#0B1E3D
+    style A2 fill:#D1FAE5,stroke:#059669,stroke-width:3px,color:#0B1E3D
+    style A3 fill:#FEF3C7,stroke:#D97706,stroke-width:3px,color:#0B1E3D
+    style A4 fill:#FEE2E2,stroke:#DC2626,stroke-width:3px,color:#0B1E3D

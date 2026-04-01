@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLM Context Engineering Bootcamp — Notes</title>
+  <style>
+    :root {
+      --navy: #1a2744;
+      --blue: #2563eb;
+      --blue-hover: #1d4ed8;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-400: #94a3b8;
+      --gray-600: #475569;
+      --gray-900: #0f172a;
+      --green: #16a34a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-900);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .subtitle a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    .subtitle a:hover { text-decoration: underline; }
+
+    .sessions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .session {
+      background: #fff;
+      border: 1px solid var(--gray-100);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: box-shadow 0.15s ease;
+    }
+
+    .session:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .session-info {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      flex: 1;
+    }
+
+    .session-number {
+      font-weight: 700;
+      color: var(--gray-400);
+      font-size: 0.85rem;
+      min-width: 1.5rem;
+    }
+
+    .session-title {
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    .badge-ready {
+      background: #dcfce7;
+      color: var(--green);
+    }
+
+    .badge-wip {
+      background: #fef3c7;
+      color: #b45309;
+    }
+
+    .pdf-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--blue);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-left: 1rem;
+      white-space: nowrap;
+    }
+
+    .pdf-link:hover { text-decoration: underline; }
+
+    .session.wip { opacity: 0.6; }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      color: var(--gray-400);
+      font-size: 0.8rem;
+    }
+
+    footer a { color: var(--gray-600); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>LLM Context Engineering Bootcamp</h1>
+      <p class="subtitle">
+        Notes from the
+        <a href="https://www.youtube.com/playlist?list=PLPTV0NXA_ZSj-E8A1DBvbWIYGxC46u-Hd" target="_blank" rel="noopener">
+          Vizuara AI Labs bootcamp
+        </a>
+      </p>
+    </header>
+
+    <div class="sessions">
+      <div class="session">
+        <div class="session-info">
+          <span class="session-number">01</span>
+          <span class="session-title">Introduction to LLM Context Engineering</span>
+          <span class="badge badge-ready">Ready</span>
+        </div>
+        <a class="pdf-link" href="day_01_notes.pdf">PDF &darr;</a>
+      </div>
+
+      <div class="session">
+        <div class="session-info">
+          <span class="session-number">02</span>
+          <span class="session-title">System Prompts &amp; CLAUDE.md</span>
+          <span class="badge badge-ready">Ready</span>
+        </div>
+        <a class="pdf-link" href="day_02_notes.pdf">PDF &darr;</a>
+      </div>
+
+      <div class="session">
+        <div class="session-info">
+          <span class="session-number">03</span>
+          <span class="session-title">RAG from Scratch</span>
+          <span class="badge badge-ready">Ready</span>
+        </div>
+        <a class="pdf-link" href="day_03_notes.pdf">PDF &darr;</a>
+      </div>
+
+      <div class="session wip">
+        <div class="session-info">
+          <span class="session-number">04</span>
+          <span class="session-title">Tools, Function Calling &amp; MCP</span>
+          <span class="badge badge-wip">In progress</span>
+        </div>
+      </div>
+
+      <div class="session wip">
+        <div class="session-info">
+          <span class="session-number">05</span>
+          <span class="session-title">COMPRESS &amp; ISOLATE</span>
+          <span class="badge badge-wip">In progress</span>
+        </div>
+      </div>
+
+      <div class="session wip">
+        <div class="session-info">
+          <span class="session-number">06</span>
+          <span class="session-title">Memory Architectures</span>
+          <span class="badge badge-wip">In progress</span>
+        </div>
+      </div>
+
+      <div class="session wip">
+        <div class="session-info">
+          <span class="session-number">07</span>
+          <span class="session-title">Production Patterns</span>
+          <span class="badge badge-wip">In progress</span>
+        </div>
+      </div>
+
+      <div class="session wip">
+        <div class="session-info">
+          <span class="session-number">08</span>
+          <span class="session-title">Capstone</span>
+          <span class="badge badge-wip">In progress</span>
+        </div>
+      </div>
+
+      <div class="session wip">
+        <div class="session-info">
+          <span class="session-number">09</span>
+          <span class="session-title">Mega Build Session I</span>
+          <span class="badge badge-wip">In progress</span>
+        </div>
+      </div>
+
+      <div class="session wip">
+        <div class="session-info">
+          <span class="session-number">10</span>
+          <span class="session-title">Mega Build Session II</span>
+          <span class="badge badge-wip">In progress</span>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <a href="https://github.com/di37/context-engineering-bootcamp" target="_blank" rel="noopener">
+        View source on GitHub
+      </a>
+    </footer>
+  </div>
+</body>
+</html>

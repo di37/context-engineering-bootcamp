@@ -1,0 +1,38 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8EDF3",
+    "primaryTextColor": "#0B1E3D",
+    "primaryBorderColor": "#8696b0",
+    "lineColor": "#0B1E3D",
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "18px"
+  },
+  "flowchart": { "nodeSpacing": 50, "rankSpacing": 60, "padding": 25 }
+}}%%
+graph TD
+    S1["Sentence 1"] --> E1["Embed S1"]
+    S2["Sentence 2"] --> E2["Embed S2"]
+    S3["Sentence 3"] --> E3["Embed S3"]
+    S4["Sentence 4"] --> E4["Embed S4"]
+
+    E1 --> CS1["Cosine sim(S1, S2)<br/>→ High ✓"]
+    E2 --> CS1
+    E3 --> CS2["Cosine sim(S3, S4)<br/>→ High ✓"]
+    E4 --> CS2
+
+    CS1 --> C1["<b>Chunk 1</b> = S1 + S2"]
+    CS2 --> C2["<b>Chunk 2</b> = S3 + S4"]
+
+    style S1 fill:#FEF3C7,stroke:#D97706,color:#0B1E3D
+    style S2 fill:#FEF3C7,stroke:#D97706,color:#0B1E3D
+    style S3 fill:#DBEAFE,stroke:#2563EB,color:#0B1E3D
+    style S4 fill:#DBEAFE,stroke:#2563EB,color:#0B1E3D
+    style E1 fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style E2 fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style E3 fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style E4 fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style CS1 fill:#D1FAE5,stroke:#059669,color:#0B1E3D
+    style CS2 fill:#D1FAE5,stroke:#059669,color:#0B1E3D
+    style C1 fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style C2 fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff

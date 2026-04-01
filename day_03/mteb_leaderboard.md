@@ -1,0 +1,16 @@
+# MTEB (Multilingual, v2) Leaderboard Top 10
+
+| Rank | Model | Zero-shot | Active Param (B) | Total Param (B) | Embedding Dim | Max Tokens | Mean (Task) | Mean (TaskType) | Bitext Mining | Classification | Clustering |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | KallM-Embedding-Gemma3-12B-2511 | 73% | 10.8 | 11.8 | 3840 | 32768 | 72.32 | 62.51 | 83.76 | 77.88 | 55.77 |
+| 2 | llama-embed-nemotron-8b | 99% | 7.0 | 7.5 | 4096 | 32768 | 69.46 | 61.69 | 81.72 | 73.21 | 54.35 |
+| 3 | Qwen3-Embedding-8B | 99% | 6.9 | 7.6 | 4096 | 32768 | 70.58 | 61.69 | 80.89 | 74.00 | 57.65 |
+| 4 | gemini-embedding-001 | 99% | - | - | 3072 | 2048 | 68.37 | 59.59 | 79.28 | 71.82 | 54.59 |
+| 5 | Qwen3-Embedding-4B | 99% | 3.6 | 4.0 | 2560 | 32768 | 69.45 | 60.06 | 79.36 | 72.33 | 57.15 |
+| 6 | Octen-Embedding-8B | 99% | 6.9 | 7.6 | 4096 | 32768 | 67.84 | 60.28 | 80.35 | 66.68 | 55.68 |
+| 7 | F2LLM-v2-14B | 88% | 13.2 | 14.0 | 5120 | 40960 | 68.74 | 59.45 | 77.15 | 73.00 | 60.91 |
+| 8 | F2LLM-v2-8B | 88% | 6.9 | 7.6 | 4096 | 40960 | 68.09 | 58.99 | 75.96 | 71.93 | 60.62 |
+| 9 | Seed1.6-embedding-1215 | 89% | - | - | 2048 | 32768 | 70.26 | 61.34 | 78.68 | 76.75 | 56.78 |
+| 10 | F2LLM-v2-4B | 88% | 3.6 | 4.0 | 2560 | 40960 | 67.06 | 58.25 | 74.49 | 70.73 | 59.53 |
+
+This table represents the top 10 general-purpose multilingual embedding models from the MTEB leaderboard as shown in the provided screenshot.

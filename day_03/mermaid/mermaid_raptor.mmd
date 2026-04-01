@@ -1,0 +1,58 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8EDF3",
+    "primaryTextColor": "#0B1E3D",
+    "primaryBorderColor": "#8696b0",
+    "lineColor": "#0B1E3D",
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "22px"
+  },
+  "flowchart": { "nodeSpacing": 50, "rankSpacing": 70, "padding": 30 }
+}}%%
+graph TD
+    TOP["<b>Level 3: Global Summary</b><br/>High-level overview of entire corpus"]
+
+    C1["<b>Cluster Summary A</b><br/>Consolidates Docs 1-4"]
+    C2["<b>Cluster Summary B</b><br/>Consolidates Docs 5-8"]
+
+    D1["Doc 1"]
+    D2["Doc 2"]
+    D3["Doc 3"]
+    D4["Doc 4"]
+    D5["Doc 5"]
+    D6["Doc 6"]
+    D7["Doc 7"]
+    D8["Doc 8"]
+
+    TOP --> C1
+    TOP --> C2
+    C1 --> D1
+    C1 --> D2
+    C1 --> D3
+    C1 --> D4
+    C2 --> D5
+    C2 --> D6
+    C2 --> D7
+    C2 --> D8
+
+    IDX["<b>Flat Index</b><br/>All levels indexed together<br/>High-level Q → summaries<br/>Low-level Q → raw chunks"]
+
+    TOP -.-> IDX
+    C1 -.-> IDX
+    C2 -.-> IDX
+    D1 -.-> IDX
+    D5 -.-> IDX
+
+    style TOP fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style C1 fill:#DBEAFE,stroke:#2563EB,stroke-width:2px,color:#0B1E3D
+    style C2 fill:#DBEAFE,stroke:#2563EB,stroke-width:2px,color:#0B1E3D
+    style D1 fill:#D1FAE5,stroke:#059669,color:#0B1E3D
+    style D2 fill:#D1FAE5,stroke:#059669,color:#0B1E3D
+    style D3 fill:#D1FAE5,stroke:#059669,color:#0B1E3D
+    style D4 fill:#D1FAE5,stroke:#059669,color:#0B1E3D
+    style D5 fill:#D1FAE5,stroke:#059669,color:#0B1E3D
+    style D6 fill:#D1FAE5,stroke:#059669,color:#0B1E3D
+    style D7 fill:#D1FAE5,stroke:#059669,color:#0B1E3D
+    style D8 fill:#D1FAE5,stroke:#059669,color:#0B1E3D
+    style IDX fill:#FEF3C7,stroke:#D97706,stroke-width:3px,color:#0B1E3D

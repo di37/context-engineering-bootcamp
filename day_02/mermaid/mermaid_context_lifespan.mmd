@@ -1,0 +1,40 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8EDF3",
+    "primaryTextColor": "#1a2744",
+    "primaryBorderColor": "#8696b0",
+    "lineColor": "#1a2744",
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "17px"
+  },
+  "flowchart": {
+    "nodeSpacing": 50,
+    "rankSpacing": 60,
+    "padding": 30
+  }
+}}%%
+
+graph LR
+    subgraph M["Weeks to Months"]
+        A["CLAUDE.md<br/>agents.md"]
+    end
+
+    subgraph D["Hours to Days"]
+        B["skill.md<br/>Feature Specs<br/>Implementation Plans"]
+    end
+
+    subgraph MIN["Minutes"]
+        C["Conversation<br/>History"]
+    end
+
+    subgraph S["Seconds"]
+        E["RAG Output<br/>Tool Results"]
+    end
+
+    A --> B --> C --> E
+
+    style A fill:#D1FAE5,stroke:#059669,stroke-width:2px,color:#1a2744
+    style B fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#1a2744
+    style C fill:#FED7AA,stroke:#EA580C,stroke-width:2px,color:#1a2744
+    style E fill:#FEE2E2,stroke:#DC2626,stroke-width:2px,color:#1a2744

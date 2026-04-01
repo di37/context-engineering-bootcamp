@@ -1,0 +1,47 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8EDF3",
+    "primaryTextColor": "#0B1E3D",
+    "primaryBorderColor": "#8696b0",
+    "lineColor": "#0B1E3D",
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "22px"
+  },
+  "flowchart": { "nodeSpacing": 60, "rankSpacing": 80, "padding": 35 }
+}}%%
+graph TD
+    subgraph OFFLINE["<b>Offline: Indexing Phase (Run Once)</b>"]
+        direction LR
+        D["PDF Documents"] --> ING["Ingestion<br/>PyPDF / Dockling"]
+        ING --> CH["Chunking<br/>Recursive / Semantic"]
+        CH --> EMB["Embedding<br/>Sentence Transformers"]
+        EMB --> VS["Vector Store<br/>FAISS / Chroma"]
+    end
+
+    VS --> RET
+
+    subgraph ONLINE["<b>Online: Query Phase (Per Request)</b>"]
+        direction LR
+        Q["User Query"] --> QE["Query<br/>Embedding"]
+        QE --> RET["Retrieval<br/>Top-K"]
+        RET --> RR["Reranking<br/>Cross-Encoder"]
+        RR --> CA["Context<br/>Assembly"]
+        CA --> LLM["LLM<br/>Generation"]
+        LLM --> ANS["Answer"]
+    end
+
+    style OFFLINE fill:#F0F9FF,stroke:#0891B2,stroke-width:3px
+    style ONLINE fill:#F0FFF0,stroke:#059669,stroke-width:3px
+    style D fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style ING fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style CH fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style EMB fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style VS fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style Q fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#0B1E3D
+    style QE fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style RET fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style RR fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style CA fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style LLM fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style ANS fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff

@@ -1,0 +1,37 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8EDF3",
+    "primaryTextColor": "#0B1E3D",
+    "primaryBorderColor": "#8696b0",
+    "lineColor": "#0B1E3D",
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "18px"
+  },
+  "flowchart": { "nodeSpacing": 50, "rankSpacing": 60, "padding": 25 }
+}}%%
+graph LR
+    subgraph EPH["⏱️ Ephemeral (Minutes)"]
+        E["task.md / Scratchpad"]
+    end
+
+    subgraph TRANS["🕐 Transient (Hours)"]
+        T["Session files /<br/>Sub-agent DBs"]
+    end
+
+    subgraph PERSIST["📁 Persistent (Weeks/Months)"]
+        P["CLAUDE.md / Vector DBs /<br/>Global config"]
+    end
+
+    E -->|"Used once,<br/>discarded"| GONE["🗑️ Discarded"]
+    T -->|"Lasts for<br/>current task phase"| GONE
+    P -->|"Referenced<br/>repeatedly"| KEPT["✅ Kept indefinitely"]
+
+    style EPH fill:#FEF3C7,stroke:#D97706,stroke-width:2px
+    style TRANS fill:#DBEAFE,stroke:#2563EB,stroke-width:2px
+    style PERSIST fill:#D1FAE5,stroke:#059669,stroke-width:2px
+    style E fill:#FEF3C7,stroke:#D97706,color:#0B1E3D
+    style T fill:#DBEAFE,stroke:#2563EB,color:#0B1E3D
+    style P fill:#D1FAE5,stroke:#059669,color:#0B1E3D
+    style GONE fill:#FEE2E2,stroke:#DC2626,color:#0B1E3D
+    style KEPT fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff

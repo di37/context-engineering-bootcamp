@@ -1,0 +1,114 @@
+@online{langchain2025wsci,
+  author    = {Lance Martin},
+  title     = {Context Engineering for Agents},
+  year      = {2025},
+  organization = {LangChain},
+  url       = {https://blog.langchain.com/context-engineering-for-agents/},
+  note      = {Defines the WRITE-SELECT-COMPRESS-ISOLATE (WSCI) framework for managing information flow in and out of an LLM's context window}
+}
+
+@online{deepseek2024ocr,
+  author    = {{DeepSeek}},
+  title     = {Context Optical Compression: Efficient Text Token Reduction via Vision Encoding},
+  year      = {2024},
+  note      = {Shows 97\% OCR precision at 10x vision token compression ratio; 60\% accuracy at 20x compression}
+}
+
+@online{facebook2024faiss,
+  author    = {{Meta AI}},
+  title     = {{FAISS}: A Library for Efficient Similarity Search and Clustering of Dense Vectors},
+  year      = {2024},
+  url       = {https://github.com/facebookresearch/faiss},
+  note      = {High-performance vector similarity search using IVF and approximate nearest neighbor algorithms}
+}
+
+@inproceedings{lewis2020rag,
+  author    = {Patrick Lewis and Ethan Perez and Aleksandra Piktus and Fabio Petroni and Vladimir Karpukhin and Naman Goyal and Heinrich K{\"u}ttler and Mike Lewis and Wen-tau Yih and Tim Rockt{\"a}schel and Sebastian Riedel and Douwe Kiela},
+  title     = {Retrieval-Augmented Generation for Knowledge-Intensive {NLP} Tasks},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2020},
+  note      = {Foundational paper introducing RAG: combines parametric memory (LLM) with non-parametric memory (dense passage retrieval) for knowledge-intensive NLP tasks}
+}
+
+@article{robertson2009bm25,
+  author    = {Stephen Robertson and Hugo Zaragoza},
+  title     = {The Probabilistic Relevance Framework: {BM25} and Beyond},
+  journal   = {Foundations and Trends in Information Retrieval},
+  volume    = {3},
+  number    = {4},
+  pages     = {333--389},
+  year      = {2009},
+  note      = {Defines the BM25 ranking function with term frequency saturation (k1) and document length normalization (b); the canonical reference for production sparse retrieval}
+}
+
+@inproceedings{khattab2020colbert,
+  author    = {Omar Khattab and Matei Zaharia},
+  title     = {{ColBERT}: Efficient and Effective Passage Search via Contextualized Late Interaction over {BERT}},
+  booktitle = {Proceedings of the 43rd International ACM SIGIR Conference on Research and Development in Information Retrieval},
+  year      = {2020},
+  note      = {Introduces late interaction: per-token embeddings scored via MaxSim operator; achieves cross-encoder accuracy at bi-encoder speed with offline document encoding}
+}
+
+@inproceedings{reimers2019sbert,
+  author    = {Nils Reimers and Iryna Gurevych},
+  title     = {Sentence-{BERT}: Sentence Embeddings using Siamese {BERT}-Networks},
+  booktitle = {Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  year      = {2019},
+  note      = {Introduces sentence transformer architecture: Siamese BERT fine-tuned with cosine similarity loss to produce semantically meaningful dense embeddings for efficient similarity search}
+}
+
+@inproceedings{gao2023hyde,
+  author    = {Luyu Gao and Xueguang Ma and Jimmy Lin and Jamie Callan},
+  title     = {Precise Zero-Shot Dense Retrieval without Relevance Labels},
+  booktitle = {Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (ACL)},
+  year      = {2023},
+  note      = {Hypothetical Document Embeddings (HyDE): generate a hypothetical answer passage and embed it instead of the raw query to bridge the vocabulary gap between questions and documents}
+}
+
+@inproceedings{sarthi2024raptor,
+  author    = {Parth Sarthi and Salman Abdullah and Aditi Tuli and Shubh Khanna and Anna Goldie and Christopher D. Manning},
+  title     = {{RAPTOR}: Recursive Abstractive Processing for Tree-Organized Retrieval},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2024},
+  note      = {Builds a recursive hierarchy of cluster summaries from document chunks; indexes all levels together for multi-granularity retrieval covering both specific and high-level questions}
+}
+
+@inproceedings{asai2024selfrag,
+  author    = {Akari Asai and Zeqiu Wu and Yizhong Wang and Avirup Sil and Hannaneh Hajishirzi},
+  title     = {Self-{RAG}: Learning to Retrieve, Generate, and Critique through Self-Reflection},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2024},
+  note      = {Fine-tunes an LLM to emit reflection tokens ([Retrieve], [IsRel], [IsSup], [IsUse]) enabling on-demand retrieval and intrinsic self-grading of generation quality}
+}
+
+@article{yan2024crag,
+  author    = {Shi-Qi Yan and Jia-Chen Gu and Yun Zhu and Zhen-Hua Ling},
+  title     = {Corrective Retrieval Augmented Generation},
+  journal   = {arXiv preprint arXiv:2401.15884},
+  year      = {2024},
+  note      = {Adds a lightweight relevance grader after retrieval; falls back to web search when retrieved documents are graded irrelevant, preventing hallucination from poor retrieval}
+}
+
+@article{jeong2024adaptiverag,
+  author    = {Soyeong Jeong and Jinheon Baek and Sukmin Cho and Sung Ju Hwang and Jong C. Park},
+  title     = {Adaptive-{RAG}: Learning to Adapt Retrieval-Augmented Large Language Models through Question Complexity},
+  journal   = {arXiv preprint arXiv:2403.14403},
+  year      = {2024},
+  note      = {Trains a classifier to route queries to one of three tracks based on complexity: no retrieval, single-step retrieval, or iterative multi-step retrieval}
+}
+
+@online{anthropic2024contextual,
+  author    = {{Anthropic}},
+  title     = {Contextual Retrieval},
+  year      = {2024},
+  url       = {https://www.anthropic.com/news/contextual-retrieval},
+  note      = {Prepending a 2--3 sentence document-level context to each chunk before embedding reduces retrieval failures by ~49\%; combining with BM25 reduces failures by ~67\%}
+}
+
+@article{es2023ragas,
+  author    = {Shahul Es and Jithin James and Luis Espinosa Anke and Steven Schockaert},
+  title     = {{RAGAS}: Automated Evaluation of Retrieval Augmented Generation},
+  journal   = {arXiv preprint arXiv:2309.15217},
+  year      = {2023},
+  note      = {Framework for automated RAG evaluation measuring context precision, context recall, faithfulness, and answer relevance using LLM-as-judge methodology}
+}

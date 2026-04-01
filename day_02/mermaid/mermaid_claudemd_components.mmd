@@ -1,0 +1,38 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8EDF3",
+    "primaryTextColor": "#1a2744",
+    "primaryBorderColor": "#8696b0",
+    "lineColor": "#1a2744",
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "18px"
+  },
+  "flowchart": {
+    "nodeSpacing": 55,
+    "rankSpacing": 60,
+    "padding": 30
+  }
+}}%%
+
+graph TD
+    CLAUDE["<b>CLAUDE.md</b><br/><i>System Prompt File</i>"]
+
+    ID["<b>1. Identity</b><br/>What this project IS<br/><i>One paragraph · fewest tokens</i>"]
+    RU["<b>2. Rules</b><br/>HOW it should behave<br/><i>Guardrails · highest priority</i>"]
+    FO["<b>3. Format</b><br/>Output structure<br/><i>JSON · code · folder layout</i>"]
+    KN["<b>4. Knowledge</b><br/>WHAT reality looks like<br/><i>Env vars · tech stack · phases</i>"]
+    TO["<b>5. Tools</b><br/>WHAT it can access<br/><i>APIs · libraries · functions</i>"]
+
+    CLAUDE --> ID
+    CLAUDE --> RU
+    CLAUDE --> FO
+    CLAUDE --> KN
+    CLAUDE --> TO
+
+    style CLAUDE fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style ID  fill:#E8F4FD,stroke:#0891B2,stroke-width:2px,color:#1a2744
+    style RU  fill:#FEE2E2,stroke:#DC2626,stroke-width:3px,color:#1a2744
+    style FO  fill:#D1FAE5,stroke:#059669,stroke-width:2px,color:#1a2744
+    style KN  fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#1a2744
+    style TO  fill:#EDE9FE,stroke:#7C3AED,stroke-width:2px,color:#1a2744

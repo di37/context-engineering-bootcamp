@@ -1,0 +1,63 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8EDF3",
+    "primaryTextColor": "#1a2744",
+    "primaryBorderColor": "#8696b0",
+    "lineColor": "#1a2744",
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "19px"
+  },
+  "flowchart": {
+    "nodeSpacing": 30,
+    "rankSpacing": 65,
+    "padding": 32
+  }
+}}%%
+
+graph TD
+    HEADER["<b>CLAUDE.md — 12 sections · ~1,300 tokens</b>"]
+
+    subgraph ROW1[" "]
+        direction LR
+        S1["Auth Conventions"] ~~~ S2["Database Conventions"] ~~~ S3["API Design"] ~~~ S4["Logging"] ~~~ S5["Error Handling"] ~~~ S6["Testing Standards"]
+    end
+
+    subgraph ROW2[" "]
+        direction LR
+        S7["Naming Conventions"] ~~~ S8["Front-end Architecture"] ~~~ S9["Security Practices"] ~~~ S10["Performance"] ~~~ S11["Deployment / DevOps"] ~~~ S12["Data Validation"]
+    end
+
+    TASK["<b>Task:</b> Write unit test for user service"]
+    CTX["<b>Context → LLM</b><br/>~440 tokens · 65% savings"]
+
+    HEADER --> ROW1
+    HEADER --> ROW2
+
+    TASK -.->|"keyword match"| S5
+    TASK -.->|"keyword match"| S6
+    TASK -.->|"keyword match"| S7
+    TASK -.->|"keyword match"| S12
+
+    S5  --> CTX
+    S6  --> CTX
+    S7  --> CTX
+    S12 --> CTX
+
+    style HEADER fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style TASK   fill:#0891B2,stroke:#0891B2,color:#ffffff
+    style CTX    fill:#D1FAE5,stroke:#059669,stroke-width:3px,color:#1a2744
+
+    style S5  fill:#FEF3C7,stroke:#D97706,stroke-width:3px,color:#1a2744
+    style S6  fill:#FEF3C7,stroke:#D97706,stroke-width:3px,color:#1a2744
+    style S7  fill:#FEF3C7,stroke:#D97706,stroke-width:3px,color:#1a2744
+    style S12 fill:#FEF3C7,stroke:#D97706,stroke-width:3px,color:#1a2744
+
+    style S1  fill:#E8EDF3,stroke:#8696b0,color:#888
+    style S2  fill:#E8EDF3,stroke:#8696b0,color:#888
+    style S3  fill:#E8EDF3,stroke:#8696b0,color:#888
+    style S4  fill:#E8EDF3,stroke:#8696b0,color:#888
+    style S8  fill:#E8EDF3,stroke:#8696b0,color:#888
+    style S9  fill:#E8EDF3,stroke:#8696b0,color:#888
+    style S10 fill:#E8EDF3,stroke:#8696b0,color:#888
+    style S11 fill:#E8EDF3,stroke:#8696b0,color:#888
