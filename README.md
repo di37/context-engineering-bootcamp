@@ -1,6 +1,6 @@
 # LLM Context Engineering Bootcamp
 
-Comprehensive notes and visual resources from the [LLM Context Engineering Bootcamp](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSj-E8A1DBvbWIYGxC46u-Hd) by [Vizuara AI Labs](https://context-engineering.vizuara.ai/). A 10-session hands-on workshop (8 lectures + 2 mega build sessions) taught by Dr. Sreedath Panat (PhD, MIT), Dr. Raj Dandekar (PhD, MIT), and Dr. Rajat Dandekar (PhD, Purdue).
+Comprehensive notes and visual resources from the [LLM Context Engineering Bootcamp](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSj-E8A1DBvbWIYGxC46u-Hd) by [Vizuara AI Labs](https://context-engineering.vizuara.ai/). A hands-on workshop taught by Dr. Sreedath Panat (PhD, MIT) and Dr. Raj Dandekar.
 
 ## What Is Context Engineering?
 
@@ -16,12 +16,10 @@ Context engineering is the discipline of designing, assembling, and managing eve
 | 2 | [**System Prompts & CLAUDE.md**](day_02/) | System prompts at the "right altitude", CLAUDE.md / AGENTS.md / skill.md, iterative construction, few-shot example selection | :white_check_mark: [PDF](https://di37.github.io/context-engineering-bootcamp/day_02_notes.pdf) |
 | 3 | [**RAG from Scratch**](day_03/) | WSCI framework, RAG pipeline end-to-end, chunking strategies, hybrid retrieval (dense + BM25 + RRF), cross-encoder reranking | :white_check_mark: [PDF](https://di37.github.io/context-engineering-bootcamp/day_03_notes.pdf) |
 | 4 | **Tools, Function Calling & MCP** | Tool schema design, Model Context Protocol (MCP), JIT instructions, ReAct agent loop | :construction: In progress |
-| 5 | **COMPRESS & ISOLATE** | Compression techniques (summarization, clearing, trimming, hierarchical), auto-compaction, multi-agent isolation, token budgets | :construction: In progress |
-| 6 | **Memory Architectures** | Episodic / semantic / procedural memory, windowing & summarization strategies, memory decay, cross-session persistence | :construction: In progress |
-| 7 | **Production Patterns** | PRP workflow, Shopify case study (JIT at scale), evaluation harnesses, LLM-as-judge, production anti-patterns | :construction: In progress |
-| 8 | **Capstone** | Full-stack agent (RAG + tools + memory + compression), three-phase guided build, evaluation & strategy playbook | :construction: In progress |
-| 9 | **Mega Build Session I** | 3-hour guided project build with Dr. Raj Dandekar | :construction: In progress |
-| 10 | **Mega Build Session II** | 3-hour guided project build with Dr. Rajat Dandekar | :construction: In progress |
+| 5 | **Multi-agent context management - all about AGENTS.md** | Compression techniques (summarization, clearing, trimming, hierarchical), auto-compaction, multi-agent isolation, token budgets | :construction: In progress |
+| 6 | **Memory Management** | Episodic / semantic / procedural memory, windowing & summarization strategies, memory decay, cross-session persistence | :construction: In progress |
+
+Other contents will be updated in the table as we continue to progress. 
 
 ## Repository Structure
 
