@@ -17,9 +17,9 @@
     #v(12pt)
     #set text(size: 12pt)
     #set par(leading: 0.9em, justify: true)
-    I am deeply grateful to #link("https://www.linkedin.com/in/sreedath-panat/")[Dr.~Sreedath Panat] and #link("https://www.linkedin.com/in/raj-abhijit-dandekar-67a33118a/")[Dr.~Raj Dandekar] of *Vizuara Technologies* for creating and generously sharing their courses. These notes would not exist without their exceptional teaching, clear explanations, and dedication to making cutting-edge AI concepts accessible to everyone.
+    I am deeply grateful to #link("https://www.linkedin.com/in/sreedath-panat/")[Dr.~Sreedath Panat] and *Vizuara Technologies* for creating and generously sharing the _Context Engineering_ course. These notes would not exist without his exceptional teaching, clear explanations, and dedication to making cutting-edge AI concepts accessible to everyone.
 
-    Thank you both for the time, effort, and passion you have poured into these courses. Your work has been instrumental in shaping my understanding of context engineering, tool use, and the Model Context Protocol.
+    Thank you, Dr.~Panat, for the time, effort, and passion you have poured into this course. Your work has been instrumental in shaping my understanding of context engineering, tool use, and the Model Context Protocol.
 
     I also extend my gratitude to #link("https://www.linkedin.com/in/nitish-singh-campusx/")[Nitish Singh] and the *CampusX* team for their outstanding MCP deep-dive series. Their detailed walkthroughs of MCP architecture, transport layers, the lifecycle protocol, connectors, and hands-on demos (newsletter automation, Manim, Blender) provided invaluable supplementary context that enriched these notes significantly.
 
