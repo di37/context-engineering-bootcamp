@@ -1,0 +1,11 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E8EDF3", "primaryTextColor": "#0B1E3D", "primaryBorderColor": "#8696b0", "lineColor": "#0B1E3D", "fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}, "flowchart": {"nodeSpacing": 50, "rankSpacing": 70, "padding": 30}}}%%
+flowchart LR
+    D1["1. DESCRIBE<br/>Tool schemas loaded<br/>into LLM context"] --> D2["2. DECIDE<br/>LLM selects which<br/>tool to call"]
+    D2 --> D3["3. CALL<br/>Structured tool call<br/>with arguments"]
+    D3 --> D4["4. RETURN<br/>Tool executes and<br/>returns results"]
+    D4 --> D5["5. REASON<br/>LLM interprets results<br/>and responds to user"]
+    style D1 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style D2 fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style D3 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style D4 fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style D5 fill:#0891B2,stroke:#0891B2,color:#ffffff

@@ -1,0 +1,19 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E8EDF3", "primaryTextColor": "#0B1E3D", "primaryBorderColor": "#8696b0", "lineColor": "#0B1E3D", "fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}}}%%
+graph LR
+    subgraph "Without MCP: N × M Integrations"
+        C1["Claude"] --- G1["GitHub"]
+        C1 --- S1["Slack"]
+        C1 --- D1["Database"]
+        O1["GPT"] --- G1
+        O1 --- S1
+        O1 --- D1
+        GE1["Gemini"] --- G1
+        GE1 --- S1
+        GE1 --- D1
+    end
+    style C1 fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style O1 fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style GE1 fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style G1 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style S1 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style D1 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D

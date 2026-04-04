@@ -1,0 +1,17 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E8EDF3", "primaryTextColor": "#0B1E3D", "primaryBorderColor": "#8696b0", "lineColor": "#0B1E3D", "fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}}}%%
+graph LR
+    subgraph "With MCP: N + M Integrations"
+        C2["Claude"] --- MCP["MCP Protocol<br/>Standardized Interface"]
+        O2["GPT"] --- MCP
+        GE2["Gemini"] --- MCP
+        MCP --- G2["GitHub MCP Server"]
+        MCP --- S2["Slack MCP Server"]
+        MCP --- D2["Database MCP Server"]
+    end
+    style MCP fill:#0891B2,stroke:#0891B2,color:#ffffff
+    style C2 fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style O2 fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style GE2 fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style G2 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style S2 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style D2 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D

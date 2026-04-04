@@ -1,0 +1,16 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E8EDF3", "primaryTextColor": "#0B1E3D", "primaryBorderColor": "#8696b0", "lineColor": "#0B1E3D", "fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}, "flowchart": {"nodeSpacing": 40, "rankSpacing": 50}}}%%
+flowchart TD
+    USER["User Query"] -->|"What missions are in transit?"| CLIENT["MCP Client"]
+    CLIENT -->|"Loads relevant tool schemas"| LLM["LLM"]
+    LLM -->|"Produces structured tool call:<br/>search_missions status=in_transit"| CLIENT
+    CLIENT -->|"Forwards tool call via HTTP/stdio"| SERVER["MCP Server"]
+    SERVER -->|"Executes search_missions function"| DB[("Database / API")]
+    DB -->|"Raw results"| SERVER
+    SERVER -->|"Tool results JSON"| CLIENT
+    CLIENT -->|"Selects relevant subset of results"| LLM
+    LLM -->|"One mission is currently in transit:<br/>Mars Pathfinder Relay..."| USER
+    style USER fill:#F59E0B,stroke:#F59E0B,color:#ffffff
+    style CLIENT fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style LLM fill:#0891B2,stroke:#0891B2,color:#ffffff
+    style SERVER fill:#1A56DB,stroke:#1A56DB,color:#ffffff
+    style DB fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D

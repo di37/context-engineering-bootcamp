@@ -1,0 +1,48 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E8EDF3",
+    "primaryTextColor": "#0B1E3D",
+    "primaryBorderColor": "#8696b0",
+    "lineColor": "#0B1E3D",
+    "signalColor": "#0B1E3D",
+    "actorBkg": "#0B1E3D",
+    "actorTextColor": "#ffffff",
+    "actorBorder": "#0891B2",
+    "activationBkgColor": "#F0F9FF",
+    "activationBorderColor": "#0891B2",
+    "noteBkgColor": "#F0F9FF",
+    "noteBorderColor": "#0891B2",
+    "noteTextColor": "#0B1E3D",
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "16px"
+  },
+  "sequence": { "mirrorActors": false, "messageMargin": 40, "boxMargin": 10 }
+}}%%
+sequenceDiagram
+    participant C as MCP Client
+    participant S as MCP Server
+
+    rect rgba(8, 145, 178, 0.12)
+    note over C,S: Stage 1 — Initialization (Handshake)
+    C->>S: initialize (protocol version, client capabilities)
+    S-->>C: initialize response (server capabilities, negotiated version)
+    C-)S: initialized (notification — no ID, no response)
+    end
+
+    rect rgba(240, 249, 255, 0.6)
+    note over C,S: Stage 2 — Normal Operation
+    C->>S: tools/list
+    S-->>C: [search_missions, get_weather, ...]
+    C->>S: tools/call ("search_missions", args)
+    S-->>C: { result: [...] }
+    C->>S: resources/read ("crew://schedule")
+    S-->>C: { content: "..." }
+    S-)C: notifications/progress (60/100)
+    end
+
+    rect rgba(220, 38, 38, 0.08)
+    note over C,S: Stage 3 — Shutdown
+    C-)S: disconnect / close transport
+    note right of S: Server frees resources
+    end

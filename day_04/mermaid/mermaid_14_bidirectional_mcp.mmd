@@ -1,0 +1,17 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E8EDF3", "primaryTextColor": "#0B1E3D", "primaryBorderColor": "#8696b0", "lineColor": "#0B1E3D", "actorTextColor": "#0B1E3D", "actorBorder": "#0891B2", "actorBkg": "#F0F9FF", "signalColor": "#0B1E3D", "signalTextColor": "#0B1E3D", "noteBkgColor": "#BAE6FD", "noteTextColor": "#0B1E3D", "noteBorderColor": "#0891B2", "fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}}}%%
+sequenceDiagram
+    participant U as User
+    participant C as MCP Client (Host + LLM)
+    participant S as MCP Server
+    Note over C,S: TYPICAL FLOW: Client → Server
+    C->>S: tools/call: analyze_data(dataset)
+    S->>C: result: {summary: "..."}
+    Note over C,S: BIDIRECTIONAL: Server → Client
+    S->>C: sampling/createMessage<br/>"Rank these 50 papers by relevance"
+    Note right of C: Server borrows<br/>host's LLM
+    C->>S: sampling response: {ranked_papers: [...]}
+    S->>U: elicitation/request<br/>"Delete production DB? Confirm Y/N"
+    Note right of U: Server asks user<br/>for input
+    U->>S: "Y"
+    S-->>C: notifications/progress<br/>progress: 60/100
+    Note right of C: Fire-and-forget<br/>(no response needed)

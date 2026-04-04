@@ -1,0 +1,15 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E8EDF3", "primaryTextColor": "#0B1E3D", "primaryBorderColor": "#8696b0", "lineColor": "#0B1E3D", "fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}, "flowchart": {"nodeSpacing": 40, "rankSpacing": 60}}}%%
+graph TD
+    U["User"] -->|"Natural language instruction"| CLIENT["MCP Client<br/>e.g., Claude Code / Web App"]
+    CLIENT <-->|"Manages context"| LLM["LLM<br/>e.g., Opus 4.6"]
+    CLIENT <-->|"JSON over stdio/HTTP"| SERVER["MCP Server<br/>e.g., Blender MCP / Railway"]
+    SERVER -->|"Executes"| TOOL1["Tool 1: get_transcript"]
+    SERVER -->|"Executes"| TOOL2["Tool 2: create_3d_model"]
+    SERVER -->|"Executes"| TOOL3["Tool 3: search_missions"]
+    style U fill:#F59E0B,stroke:#F59E0B,color:#ffffff
+    style CLIENT fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style LLM fill:#0891B2,stroke:#0891B2,color:#ffffff
+    style SERVER fill:#1A56DB,stroke:#1A56DB,color:#ffffff
+    style TOOL1 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style TOOL2 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style TOOL3 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D

@@ -1,0 +1,11 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E8EDF3", "primaryTextColor": "#0B1E3D", "primaryBorderColor": "#8696b0", "lineColor": "#0B1E3D", "fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}, "flowchart": {"nodeSpacing": 50, "rankSpacing": 70, "padding": 30}}}%%
+flowchart TD
+    A["@mcp.tool()<br/>Python Decorator"] --> B["Function Inspection<br/>Name, params,<br/>type annotations"]
+    B --> C["Schema Generation<br/>str → string<br/>float → number<br/>int → integer"]
+    C --> D["JSON Tool Schema<br/>name, description,<br/>parameters, required"]
+    D --> E["Registered in<br/>FastMCP Registry<br/>Available via<br/>tools/list"]
+    style A fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style B fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style C fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style D fill:#0891B2,stroke:#0891B2,color:#ffffff
+    style E fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff

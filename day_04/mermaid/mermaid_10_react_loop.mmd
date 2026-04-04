@@ -1,0 +1,20 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E8EDF3", "primaryTextColor": "#0B1E3D", "primaryBorderColor": "#8696b0", "lineColor": "#0B1E3D", "fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}, "flowchart": {"nodeSpacing": 40, "rankSpacing": 50}}}%%
+flowchart TD
+    Q["User Query"] --> T1["Thought 1<br/>LLM reasons about<br/>what to do"]
+    T1 --> A1["Action 1<br/>LLM produces<br/>structured tool call"]
+    A1 --> O1["Observation 1<br/>Tool returns results<br/>from MCP Server"]
+    O1 --> T2["Thought 2<br/>LLM reasons about<br/>results"]
+    T2 -->|"Need more info?"| A2["Action 2<br/>Another tool call"]
+    T2 -->|"Have enough info?"| ANS["Final Answer<br/>Natural language<br/>to user"]
+    A2 --> O2["Observation 2<br/>Tool returns results"]
+    O2 --> T3["Thought 3<br/>LLM reasons again"]
+    T3 --> ANS
+    style Q fill:#F59E0B,stroke:#F59E0B,color:#ffffff
+    style T1 fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style T2 fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style T3 fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style A1 fill:#0891B2,stroke:#0891B2,color:#ffffff
+    style A2 fill:#0891B2,stroke:#0891B2,color:#ffffff
+    style O1 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style O2 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style ANS fill:#10B981,stroke:#10B981,color:#ffffff

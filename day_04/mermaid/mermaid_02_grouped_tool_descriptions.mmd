@@ -1,0 +1,21 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E8EDF3", "primaryTextColor": "#0B1E3D", "primaryBorderColor": "#8696b0", "lineColor": "#0B1E3D", "fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}, "flowchart": {"nodeSpacing": 40, "rankSpacing": 60, "padding": 25}}}%%
+graph TD
+    S["Slack Tools<br/>3,000+ functions"] --> CH["Channels Group<br/>~5 tools"]
+    S --> MSG["Messages Group<br/>~15 tools"]
+    S --> USR["Users Group<br/>~10 tools"]
+    S --> ADM["Admin Group<br/>~25 tools"]
+    CH --> CH1["rename_channel"]
+    CH --> CH2["invite_to_channel"]
+    CH --> CH3["send_channel_message"]
+    USR --> USR1["add_member"]
+    USR --> USR2["remove_member"]
+    style S fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style CH fill:#0891B2,stroke:#0891B2,color:#ffffff
+    style MSG fill:#0891B2,stroke:#0891B2,color:#ffffff
+    style USR fill:#0891B2,stroke:#0891B2,color:#ffffff
+    style ADM fill:#0891B2,stroke:#0891B2,color:#ffffff
+    style CH1 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style CH2 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style CH3 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style USR1 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style USR2 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D

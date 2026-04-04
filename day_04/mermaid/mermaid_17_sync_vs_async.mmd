@@ -1,0 +1,24 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E8EDF3", "primaryTextColor": "#0B1E3D", "primaryBorderColor": "#8696b0", "lineColor": "#0B1E3D", "actorTextColor": "#0B1E3D", "actorBorder": "#0891B2", "actorBkg": "#F0F9FF", "signalColor": "#0B1E3D", "signalTextColor": "#0B1E3D", "noteBkgColor": "#BAE6FD", "noteTextColor": "#0B1E3D", "noteBorderColor": "#0891B2", "fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}}}%%
+sequenceDiagram
+    participant A as User A
+    participant B as User B
+    participant Sync as Sync Server
+    participant Async as Async Server
+    rect rgb(255, 240, 240)
+        Note over A,Sync: SYNCHRONOUS: Users queue
+        A->>Sync: add_expense(...)
+        Note right of Sync: DB write (500ms)
+        B->>Sync: get_expenses()
+        Note right of Sync: User B BLOCKED<br/>waiting for A
+        Sync->>A: "Expense added"
+        Note right of Sync: NOW User B<br/>can proceed
+        Sync->>B: {expenses: [...]}
+    end
+    rect rgb(240, 255, 240)
+        Note over A,Async: ASYNCHRONOUS: Concurrent
+        A->>Async: add_expense(...)
+        B->>Async: get_expenses()
+        Note right of Async: Both execute<br/>in parallel
+        Async->>B: {expenses: [...]}
+        Async->>A: "Expense added"
+    end

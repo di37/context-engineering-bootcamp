@@ -1,0 +1,12 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E8EDF3", "primaryTextColor": "#0B1E3D", "primaryBorderColor": "#8696b0", "lineColor": "#0B1E3D", "fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}, "flowchart": {"nodeSpacing": 40, "rankSpacing": 50}}}%%
+flowchart TD
+    subgraph "Without JIT"
+        SP1["System Prompt<br/>All 100 tool instructions<br/>~10K-20K tokens"]
+    end
+    subgraph "With JIT"
+        SP2["System Prompt<br/>Minimal tool descriptions<br/>~2K tokens"]
+        TR["Tool Result + JIT Instruction<br/>Only for current tool<br/>~200 tokens"]
+    end
+    style SP1 fill:#FEE2E2,stroke:#EF4444,stroke-width:2px,color:#0B1E3D
+    style SP2 fill:#D1FAE5,stroke:#10B981,stroke-width:2px,color:#0B1E3D
+    style TR fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D

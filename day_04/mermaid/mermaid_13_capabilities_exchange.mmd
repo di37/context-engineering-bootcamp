@@ -1,0 +1,13 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E8EDF3", "primaryTextColor": "#0B1E3D", "primaryBorderColor": "#8696b0", "lineColor": "#0B1E3D", "actorTextColor": "#0B1E3D", "actorBorder": "#0891B2", "actorBkg": "#F0F9FF", "signalColor": "#0B1E3D", "signalTextColor": "#0B1E3D", "noteBkgColor": "#BAE6FD", "noteTextColor": "#0B1E3D", "noteBorderColor": "#0891B2", "fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}}}%%
+sequenceDiagram
+    participant C as MCP Client
+    participant S as MCP Server
+    C->>S: Initialize Request<br/>version: "2024-11-05"<br/>capabilities: {roots, sampling, elicitation}
+    Note right of C: Client declares what<br/>it supports
+    S->>C: Initialize Response<br/>version: "2024-11-05"<br/>capabilities: {tools, resources, prompts}
+    Note left of S: Server declares what<br/>it exposes
+    C-->>S: initialized (notification)
+    Note over C,S: Both sides now know<br/>what the other supports
+    rect rgb(240, 249, 255)
+        Note over C,S: Capabilities form a CONTRACT:<br/>Server cannot request sampling<br/>unless Client declared support
+    end

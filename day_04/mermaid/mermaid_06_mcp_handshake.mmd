@@ -1,0 +1,8 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E8EDF3", "primaryTextColor": "#0B1E3D", "primaryBorderColor": "#8696b0", "lineColor": "#0B1E3D", "actorTextColor": "#0B1E3D", "actorBorder": "#0891B2", "actorBkg": "#F0F9FF", "signalColor": "#0B1E3D", "signalTextColor": "#0B1E3D", "noteBkgColor": "#BAE6FD", "noteTextColor": "#0B1E3D", "noteBorderColor": "#0891B2", "fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}}}%%
+sequenceDiagram
+    participant C as MCP Client
+    participant S as MCP Server
+    C->>S: 1. Initialize Request
+    S->>C: 2. Respond with Capabilities<br/>(tool schemas, resources, prompts)
+    C->>S: 3. notification/initialized<br/>(Connection active)
+    Note over C,S: Handshake complete — client ready to execute tools

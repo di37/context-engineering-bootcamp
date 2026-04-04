@@ -1,0 +1,20 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E8EDF3", "primaryTextColor": "#0B1E3D", "primaryBorderColor": "#8696b0", "lineColor": "#0B1E3D", "fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}, "flowchart": {"nodeSpacing": 40, "rankSpacing": 60, "padding": 25}}}%%
+flowchart TD
+    A["1. Build Minimal<br/>Demo Server<br/>One simple tool"] --> B["2. Trace Full<br/>JSON-RPC Exchange<br/>in Inspector"]
+    B --> C["3. Add Features<br/>Incrementally<br/>One tool at a time"]
+    C --> D["4. Test Each Tool<br/>in MCP Inspector<br/>Verify schemas + results"]
+    D --> E{"All tools<br/>working?"}
+    E -- No --> C
+    E -- Yes --> F["5. Install in<br/>Claude Desktop<br/>Test with natural language"]
+    F --> G{"Deploy<br/>remotely?"}
+    G -- No --> H["Done:<br/>Local Server"]
+    G -- Yes --> I["6. Switch to HTTP<br/>Convert sync → async<br/>Deploy to cloud"]
+    style A fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style B fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style C fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style D fill:#0891B2,stroke:#0891B2,color:#ffffff
+    style E fill:#F59E0B,stroke:#F59E0B,color:#ffffff
+    style F fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style G fill:#F59E0B,stroke:#F59E0B,color:#ffffff
+    style H fill:#10B981,stroke:#10B981,color:#ffffff
+    style I fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff

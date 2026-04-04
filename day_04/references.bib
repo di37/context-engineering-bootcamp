@@ -1,0 +1,88 @@
+@online{anthropic2024mcp,
+  author    = {{Anthropic}},
+  title     = {Introducing the Model Context Protocol},
+  year      = {2024},
+  url       = {https://www.anthropic.com/news/model-context-protocol},
+  note      = {Open-source standard for LLM-tool communication released November 25, 2024; reduces N$\times$M integrations to N+M by standardizing how LLMs connect to external tools and data sources}
+}
+
+@online{jsonrpc2010spec,
+  author    = {{JSON-RPC Working Group}},
+  title     = {{JSON-RPC} 2.0 Specification},
+  year      = {2010},
+  url       = {https://www.jsonrpc.org/specification},
+  note      = {Wire protocol used by MCP for all client-server messages; defines Request (with ID), Response (matching ID), and Notification (no ID) message types}
+}
+
+@online{openai2023functioncalling,
+  author    = {{OpenAI}},
+  title     = {Function Calling and Other {API} Updates},
+  year      = {2023},
+  url       = {https://openai.com/index/function-calling-and-other-api-updates/},
+  note      = {Introduced mid-2023; enables LLMs to invoke external functions by producing structured JSON output with function name and arguments}
+}
+
+@inproceedings{yao2023react,
+  author    = {Shunyu Yao and Jeffrey Zhao and Dian Yu and Nan Du and Izhak Shafran and Karthik Narasimhan and Yuan Cao},
+  title     = {{ReAct}: Synergizing Reasoning and Acting in Language Models},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2023},
+  note      = {Proposes the Thought-Action-Observation loop for LLM agents; explicit reasoning traces improve interpretability and error recovery in multi-step tool use}
+}
+
+@online{lowin2024fastmcp,
+  author    = {Jeremiah Lowin},
+  title     = {{FastMCP}: A Fast, Pythonic Way to Build {MCP} Servers and Clients},
+  year      = {2024},
+  url       = {https://github.com/jlowin/fastmcp},
+  note      = {High-level Python abstraction over the MCP SDK; uses decorator pattern (\texttt{@mcp.tool()}) to auto-generate JSON schemas from type annotations. Created by the CEO of Prefect; adopted into the official MCP SDK as FastMCP v1}
+}
+
+@online{mcpsdk2024,
+  author    = {{Anthropic}},
+  title     = {{MCP} {Python} {SDK}},
+  year      = {2024},
+  url       = {https://github.com/modelcontextprotocol/python-sdk},
+  note      = {Official Anthropic SDK providing mcp.server, mcp.client, and mcp.cli modules for building MCP servers and clients in Python}
+}
+
+@online{langchain2024mcpadapters,
+  author    = {{LangChain}},
+  title     = {{LangChain} {MCP} Adapters},
+  year      = {2024},
+  url       = {https://github.com/langchain-ai/langchain-mcp-adapters},
+  note      = {Lightweight wrapper making MCP tools compatible with the LangChain/LangGraph agent ecosystem; supports multi-server connections via MultiServerMCPClient}
+}
+
+@online{mcpspec2024,
+  author    = {{Model Context Protocol}},
+  title     = {{MCP} Specification},
+  year      = {2024},
+  url       = {https://spec.modelcontextprotocol.io/},
+  note      = {Full protocol specification defining the three-stage lifecycle (initialization, normal operation, shutdown), three primitives (tools, resources, prompts), transport layers (stdio, HTTP/SSE), and capability negotiation}
+}
+
+@online{openai2022chatgpt,
+  author    = {{OpenAI}},
+  title     = {Introducing {ChatGPT}},
+  year      = {2022},
+  url       = {https://openai.com/blog/chatgpt},
+  note      = {Launched November 30, 2022; crossed 1 million users in five days and 100 million users within two months, catalyzing widespread LLM adoption}
+}
+
+@online{awesomemcpservers,
+  author    = {{Community Contributors}},
+  title     = {Awesome {MCP} Servers},
+  year      = {2024},
+  url       = {https://github.com/punkpeye/awesome-mcp-servers},
+  note      = {Curated GitHub repository listing MCP servers by category (productivity, AI/ML, databases, etc.) with 89K+ stars; the primary discovery platform for MCP servers}
+}
+
+@online{langchain2025wsci,
+  author    = {Lance Martin},
+  title     = {Context Engineering for Agents},
+  year      = {2025},
+  organization = {LangChain},
+  url       = {https://blog.langchain.com/context-engineering-for-agents/},
+  note      = {Defines the WRITE-SELECT-COMPRESS-ISOLATE (WSCI) framework for managing information flow in and out of an LLM's context window}
+}

@@ -1,0 +1,23 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E8EDF3", "primaryTextColor": "#0B1E3D", "primaryBorderColor": "#8696b0", "lineColor": "#0B1E3D", "fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}, "flowchart": {"nodeSpacing": 40, "rankSpacing": 50, "padding": 25}}}%%
+flowchart TD
+    Q["User Query<br/>Search for tutorials AND calculate 42 × 17"] --> LLM["LLM (GPT-4 / Claude 3+)<br/>Native Function Calling"]
+    LLM --> TC["Structured Tool Calls<br/>(Generated in ONE response)"]
+    TC --> P1["Tool Call 1<br/>Search('LangChain tutorials')<br/>id: call_abc123"]
+    TC --> P2["Tool Call 2<br/>Calculator('42 * 17')<br/>id: call_def456"]
+    P1 --> R1["Result 1<br/>Found 15 tutorials..."]
+    P2 --> R2["Result 2<br/>714"]
+    R1 --> FEED["Feed ALL results back<br/>as ToolMessages<br/>(with matching call IDs)"]
+    R2 --> FEED
+    FEED --> LLM2["LLM Generates<br/>Final Answer"]
+    LLM2 --> ANS["Natural Language Response<br/>to User"]
+
+    style Q fill:#F59E0B,stroke:#F59E0B,color:#ffffff
+    style LLM fill:#0B1E3D,stroke:#0891B2,stroke-width:3px,color:#ffffff
+    style TC fill:#0891B2,stroke:#0891B2,color:#ffffff
+    style P1 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style P2 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style R1 fill:#D1FAE5,stroke:#10B981,stroke-width:2px,color:#0B1E3D
+    style R2 fill:#D1FAE5,stroke:#10B981,stroke-width:2px,color:#0B1E3D
+    style FEED fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style LLM2 fill:#0B1E3D,stroke:#0891B2,stroke-width:3px,color:#ffffff
+    style ANS fill:#10B981,stroke:#10B981,color:#ffffff

@@ -1,0 +1,12 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E8EDF3", "primaryTextColor": "#0B1E3D", "primaryBorderColor": "#8696b0", "lineColor": "#0B1E3D", "fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}, "flowchart": {"nodeSpacing": 40, "rankSpacing": 60}}}%%
+graph TD
+    CB["Central Brain / Orchestrator<br/>Project 5<br/>NO execution tools<br/>Only delegation + information access"]
+    CB <-->|"Two-way MCP"| A1["Agent 1: Research<br/>Project 1<br/>Own CLAUDE.md"]
+    CB <-->|"Two-way MCP"| A2["Agent 2: Email<br/>Project 2<br/>Own CLAUDE.md + Email DB"]
+    CB <-->|"Two-way MCP"| A3["Agent 3: Code Review<br/>Project 3<br/>Own CLAUDE.md"]
+    CB <-->|"Two-way MCP"| A4["Agent 4: Data Analysis<br/>Project 4<br/>Own CLAUDE.md + Vector DB"]
+    style CB fill:#0B1E3D,stroke:#0891B2,stroke-width:3px,color:#ffffff
+    style A1 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style A2 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style A3 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style A4 fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
