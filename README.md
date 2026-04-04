@@ -1,6 +1,6 @@
 # LLM Context Engineering Bootcamp
 
-Comprehensive notes and visual resources from the [LLM Context Engineering Bootcamp](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSj-E8A1DBvbWIYGxC46u-Hd) by [Vizuara AI Labs](https://context-engineering.vizuara.ai/). A hands-on workshop taught by Dr. Sreedath Panat (PhD, MIT) and Dr. Raj Dandekar.
+Comprehensive notes and visual resources on LLM context engineering, compiled from multiple sources. The primary resource is the [LLM Context Engineering Bootcamp](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSj-E8A1DBvbWIYGxC46u-Hd) by [Vizuara AI Labs](https://context-engineering.vizuara.ai/) (taught by Dr. Sreedath Panat, PhD MIT), supplemented by additional tutorials, papers, and community resources.
 
 ## What Is Context Engineering?
 
@@ -18,6 +18,7 @@ Context engineering is the discipline of designing, assembling, and managing eve
 | 4 | [**Tools, MCP & Agents**](day_04/) | Tool schema design, Model Context Protocol (MCP), JIT instructions, ReAct agent loop | :white_check_mark: [PDF](https://di37.github.io/context-engineering-bootcamp/day_04_notes.pdf) |
 | 5 | [**Context Engineering Failure Modes**](day_05/) | Context bloat, context rot, context poisoning, context clash, context distraction, context confusion, context drift, diagnostic framework | :white_check_mark: [PDF](https://di37.github.io/context-engineering-bootcamp/day_05_notes.pdf) |
 | 6 | **Multi-agent Context Management** | AGENTS.md, compression techniques (summarization, clearing, trimming, hierarchical), auto-compaction, multi-agent isolation, token budgets | :construction: In progress |
+| 7 | **Memory Management** | Episodic / semantic / procedural memory, windowing & summarization strategies, memory decay, cross-session persistence | :construction: In progress |
 
 Other contents will be updated in the table as we continue to progress. 
 
@@ -85,4 +86,4 @@ Each day's notes are available in two formats:
 
 ## Acknowledgments
 
-All lecture content is from the [LLM Context Engineering Bootcamp](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSj-E8A1DBvbWIYGxC46u-Hd) YouTube series. These notes are personal study materials created while following the course.
+The primary source is the [LLM Context Engineering Bootcamp](https://www.youtube.com/playlist?list=PLPTV0NXA_ZSj-E8A1DBvbWIYGxC46u-Hd) by Vizuara AI Labs. Additional content is drawn from various tutorials, research papers, and community resources. These notes are personal study materials created while learning from these sources.
