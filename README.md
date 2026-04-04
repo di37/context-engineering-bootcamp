@@ -16,8 +16,8 @@ Context engineering is the discipline of designing, assembling, and managing eve
 | 2 | [**System Prompts & CLAUDE.md**](day_02/) | System prompts at the "right altitude", CLAUDE.md / AGENTS.md / skill.md, iterative construction, few-shot example selection | :white_check_mark: [PDF](https://di37.github.io/context-engineering-bootcamp/day_02_notes.pdf) |
 | 3 | [**RAG from Scratch**](day_03/) | WSCI framework, RAG pipeline end-to-end, chunking strategies, hybrid retrieval (dense + BM25 + RRF), cross-encoder reranking | :white_check_mark: [PDF](https://di37.github.io/context-engineering-bootcamp/day_03_notes.pdf) |
 | 4 | [**Tools, MCP & Agents**](day_04/) | Tool schema design, Model Context Protocol (MCP), JIT instructions, ReAct agent loop | :white_check_mark: [PDF](https://di37.github.io/context-engineering-bootcamp/day_04_notes.pdf) |
-| 5 | [**Context Engineering Failure Modes**](day_05/) | Context bloat, context rot, context poisoning, context clash, context distraction, context confusion, context drift, diagnostic framework | :white_check_mark: [PDF](https://di37.github.io/context-engineering-bootcamp/day_05_notes.pdf) |
-| 6 | **Memory Management** | Episodic / semantic / procedural memory, windowing & summarization strategies, memory decay, cross-session persistence | :construction: In progress |
+| 5 | **Multi-agent Context Management** | AGENTS.md, compression techniques (summarization, clearing, trimming, hierarchical), auto-compaction, multi-agent isolation, token budgets | :construction: In progress |
+| 6 | [**Context Engineering Failure Modes**](day_06/) | Context bloat, context rot, context poisoning, context clash, context distraction, context confusion, context drift, diagnostic framework | :white_check_mark: [PDF](https://di37.github.io/context-engineering-bootcamp/day_06_notes.pdf) |
 
 Other contents will be updated in the table as we continue to progress. 
 
@@ -58,9 +58,9 @@ context-engineering-bootcamp/
 │   ├── illustrations/
 │   ├── mermaid/
 │   └── drawings/
-└── day_05/
-    ├── day_05_notes.typ
-    ├── day_05_notes.pdf
+└── day_06/
+    ├── day_06_notes.typ
+    ├── day_06_notes.pdf
     ├── brand.typ
     ├── references.bib
     ├── illustrations/
