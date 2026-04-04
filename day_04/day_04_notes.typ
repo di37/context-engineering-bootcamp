@@ -1931,7 +1931,82 @@ Without the thought step, an agent with JIT instructions can still produce incor
 
 #warning[Tracking cumulative token consumption across a ReAct chain matters. Each loop adds thought tokens + tool result tokens. In the multi-step example above (weather → cargo → fuel), three full loops could consume significant context. If the context window fills, results may get truncated or context rot may degrade reasoning quality.]
 
-The following section collects practical implementation details, library references, and tooling recommendations for working with the concepts covered above.
+The following section consolidates the best practices for building MCP servers and clients, drawn from both instructors' recommendations.
+
+= MCP Best Practices
+
+This section consolidates the most important do's and don'ts for building production MCP servers and clients, as emphasized throughout the lectures.
+
+== Tool Schema Design
+
+#branded-table(
+  ("Practice", "Why It Matters"),
+  ("Use verb-noun naming in snake_case", "search_missions, get_weather — unambiguous names reduce LLM confusion"),
+  ("Write clear natural language descriptions", "The LLM reads these to decide which tool to call; vague descriptions cause wrong tool selection"),
+  ("Enumerate categorical values explicitly", "Listing allowed values (e.g., status: active, completed, aborted) drastically reduces hallucination"),
+  ("Mark required vs. optional parameters", "Marking everything required forces the LLM to hallucinate values for fields it does not have"),
+  ("Keep parameters under 5", "More parameters = more chances for the LLM to make errors; combine related fields into objects"),
+  ("Document return values", "Describe what the tool returns so the LLM knows what to expect and can reason over results"),
+  ("Always add descriptions to every tool", "A tool without a description is invisible to the LLM's decision-making process"),
+  caption: [Tool schema design checklist],
+)
+
+== Server Design
+
+#branded-table(
+  ("Do", "Don't"),
+  ("Keep tools minimal: fetch data only", "Put LLM-dependent tasks (summarization, analysis) on the server"),
+  ("Handle authentication, rate limiting, and error handling on the server", "Spread integration logic across client and server"),
+  ("Return raw data to the client; let the client decide what enters the LLM context", "Return pre-processed or summarized results (that couples server to a specific LLM)"),
+  ("Use the prompt primitive to define server usage guidelines", "Assume the LLM knows how to use your tools without guidance"),
+  ("Implement server-side validation (reject invalid operations)", "Trust that the LLM will always send valid arguments"),
+  ("Default to read-only for sensitive systems", "Expose delete/edit operations without explicit guardrails"),
+  caption: [MCP server design: do's and don'ts],
+)
+
+== Client Design
+
+#branded-table(
+  ("Practice", "Details"),
+  ("The client is the context gatekeeper", "Control what tool schemas and what portion of results enter the LLM's context window"),
+  ("Use RAG for large tool sets (50+ tools)", "Load minimum descriptions; let RAG select the 5-10 relevant tools per task"),
+  ("Group tools by category", "Instead of loading all 3,000 Slack functions, load only the relevant group (Channels, Users, Admin)"),
+  ("Add triple confirmation for destructive operations", "Require 3 user confirmations before delete/edit tool calls reach the server"),
+  ("Use JIT instructions at scale", "At 100+ tools, deliver tool-specific guidance only when that tool's results are being processed"),
+  ("Make JIT instructions deterministic", "No LLM logic needed in JIT — use an enumerated list of rules appended to tool results"),
+  caption: [MCP client design principles],
+)
+
+== Lifecycle and Operations
+
+#branded-table(
+  ("Practice", "Details"),
+  ("Test with MCP Inspector before integrating", "Debug your server in isolation (like Postman for MCP) before connecting to Claude Desktop"),
+  ("Always restart the host after config changes", "Adding or modifying an MCP server in the JSON config requires a host restart"),
+  ("Use pings to keep connections alive", "Periodic pings prevent OS/proxy from closing idle connections"),
+  ("Implement timeouts", "Avoid requests hanging forever; free resources and inform the user when something fails"),
+  ("Send progress notifications for long tasks", "Include a progressToken in requests; the server sends periodic updates so the client can show a progress bar"),
+  ("Respect the initialization handshake", "No requests (except pings) before the handshake completes; violating this can crash the system"),
+  ("Handle shutdown gracefully", "Client closes stdin → waits → SIGTERM → SIGKILL; client-side code should handle dropped connections and attempt reconnection"),
+  caption: [Lifecycle and operational best practices],
+)
+
+== Security
+
+#branded-table(
+  ("Practice", "Details"),
+  ("Keep servers internal when possible", "MCP servers do not need to be publicly accessible; run them locally or on internal networks"),
+  ("Centralize config in one JSON file", "One file with all connections is easier to audit than API keys scattered across 10 different files"),
+  ("Restrict directory access for file system servers", "Specify exactly which folders the server can access; never grant access to the entire machine"),
+  ("Eliminate dangerous operations if not needed", "Remove delete/edit tools entirely from the server if the use case is read-only"),
+  ("Put safety instructions in both schema AND JIT", "For safety-critical tools: static safety rules in the schema description + dynamic guidance in JIT results"),
+  ("Use the client-server split for defense in depth", "Client provides guardrails before instructions reach the server; server validates at the tool level"),
+  caption: [MCP security best practices],
+)
+
+#info[Use *FastMCP over raw MCP SDK* for server development. The MCP SDK is the low-level specification; FastMCP is the developer-friendly abstraction. In software, developer-friendly tooling tends to become the standard.]
+
+The following section collects practical implementation details, library references, and tooling recommendations.
 
 = Implementation Notes
 
