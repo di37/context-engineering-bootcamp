@@ -1,7 +1,7 @@
 #import "brand.typ": *
 
 #show: branded-doc.with(
-  title: "Context Engineering Failure Modes",
+  title: "Day 5: Context Engineering Failure Modes",
   subtitle: "A Comprehensive Taxonomy of How Context Windows Fail",
 
   version: "v2.0",
