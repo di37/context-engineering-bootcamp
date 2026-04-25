@@ -1,0 +1,18 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E8EDF3", "primaryTextColor": "#0B1E3D", "primaryBorderColor": "#8696b0", "lineColor": "#0B1E3D", "fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}, "flowchart": {"nodeSpacing": 50, "rankSpacing": 70, "padding": 30}}}%%
+flowchart TD
+    ROOT["my-project/<br/>CLAUDE.md + AGENTS.md (root)<br/>(Root Orchestrator)"]
+    ROOT --> SRC["src/<br/>AGENTS.md<br/>(Web Development Agent)"]
+    ROOT --> TEST["tests/<br/>AGENTS.md<br/>(Testing Agent)"]
+    SRC --> FE["frontend/<br/>AGENTS.md<br/>(Frontend Agent)"]
+    SRC --> BE["backend/<br/>AGENTS.md<br/>(Backend Agent)"]
+    FE --> COMP["components/<br/>AGENTS.md<br/>(Component Agent)"]
+
+    COMP -.->|"Context includes<br/>ALL ancestor<br/>instructions"| NOTE["Root + src + frontend +<br/>components AGENTS.md<br/>Conflicts: child wins"]
+
+    style ROOT fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style SRC fill:#0891B2,stroke:#0891B2,color:#ffffff
+    style TEST fill:#0891B2,stroke:#0891B2,color:#ffffff
+    style FE fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style BE fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style COMP fill:#F0F9FF,stroke:#06B6D4,stroke-width:2px,color:#0B1E3D
+    style NOTE fill:#c4a74a,stroke:#c4a74a,color:#ffffff

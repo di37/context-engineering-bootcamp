@@ -1,0 +1,30 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E8EDF3", "primaryTextColor": "#0B1E3D", "primaryBorderColor": "#8696b0", "lineColor": "#0B1E3D", "fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}, "flowchart": {"nodeSpacing": 50, "rankSpacing": 70, "padding": 30}}}%%
+flowchart TD
+    A["Context Window<br/>Growing Beyond<br/>Threshold"] --> B["Type 1:<br/>Tool Result<br/>Clearing"]
+    A --> C["Type 2:<br/>LLM-Based<br/>Summarization"]
+    A --> D["Type 3:<br/>Priority-Based<br/>Trimming"]
+    A --> E["Type 4:<br/>Hierarchical<br/>Compression"]
+
+    B --> B1["Remove or summarize<br/>deterministic tool outputs"]
+    C --> C1["Separate API call<br/>compresses entire context"]
+    D --> D1["Rule-based P0-P3<br/>remove lowest priority"]
+    E --> E1["LLM assigns semantic<br/>hierarchy with<br/>retention percentages"]
+
+    B1 --> F["IRR: ~100%<br/>Cost: Free"]
+    C1 --> G["IRR: ~90%<br/>Cost: High"]
+    D1 --> H["IRR: ~100%<br/>Cost: Free"]
+    E1 --> I["IRR: ~95%<br/>Cost: High"]
+
+    style A fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style B fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style C fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style D fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style E fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style B1 fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style C1 fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style D1 fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style E1 fill:#E8EDF3,stroke:#8696b0,color:#0B1E3D
+    style F fill:#0891B2,stroke:#0891B2,color:#ffffff
+    style G fill:#0891B2,stroke:#0891B2,color:#ffffff
+    style H fill:#0891B2,stroke:#0891B2,color:#ffffff
+    style I fill:#0891B2,stroke:#0891B2,color:#ffffff

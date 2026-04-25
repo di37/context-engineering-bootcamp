@@ -1,0 +1,27 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E8EDF3", "primaryTextColor": "#0B1E3D", "primaryBorderColor": "#8696b0", "lineColor": "#0B1E3D", "fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}, "flowchart": {"nodeSpacing": 50, "rankSpacing": 70, "padding": 30}}}%%
+flowchart TD
+    A["Context Usage<br/>< 80%"] -->|"Normal operation"| B["Continue<br/>processing"]
+    B -->|"Context grows"| C{"Reached<br/>80%?"}
+    C -->|"No"| B
+    C -->|"Yes"| D["Pass 1:<br/>Tool Result<br/>Clearing"]
+    D --> E{"Below<br/>80%?"}
+    E -->|"Yes"| B
+    E -->|"No"| F["Pass 2:<br/>LLM<br/>Summarization"]
+    F --> G{"Below<br/>80%?"}
+    G -->|"Yes"| B
+    G -->|"No — context still high"| H{"Reached<br/>95%?"}
+    H -->|"No"| B
+    H -->|"Yes"| I["EMERGENCY:<br/>Aggressive Trimming<br/>+ Full LLM Compaction"]
+    I --> J["Context reduced<br/>to ~20-30%"]
+    J --> B
+
+    style A fill:#0891B2,stroke:#0891B2,color:#ffffff
+    style B fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style C fill:#c4a74a,stroke:#c4a74a,color:#ffffff
+    style D fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style E fill:#c4a74a,stroke:#c4a74a,color:#ffffff
+    style F fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style G fill:#c4a74a,stroke:#c4a74a,color:#ffffff
+    style H fill:#c4a74a,stroke:#c4a74a,color:#ffffff
+    style I fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style J fill:#0891B2,stroke:#0891B2,color:#ffffff

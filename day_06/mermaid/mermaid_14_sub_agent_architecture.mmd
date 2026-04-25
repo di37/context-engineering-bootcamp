@@ -1,0 +1,22 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E8EDF3", "primaryTextColor": "#0B1E3D", "primaryBorderColor": "#8696b0", "lineColor": "#0B1E3D", "fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}, "flowchart": {"nodeSpacing": 60, "rankSpacing": 80, "padding": 30}}}%%
+flowchart TD
+    O["Orchestrator<br/>Context: ~10K tokens<br/>Own API calls"] -->|"Delegates + context"| A["Research Agent<br/>Context: ~40K tokens<br/>Separate API call"]
+    O -->|"Delegates + context"| B["Code Agent<br/>Context: ~60K tokens<br/>Separate API call"]
+    O -->|"Delegates + context"| C["Testing Agent<br/>Context: ~30K tokens<br/>Separate API call"]
+    O -->|"Delegates + context"| D["Review Agent<br/>Context: ~25K tokens<br/>Separate API call"]
+    A -->|"Summary"| O
+    B -->|"Summary"| O
+    C -->|"Summary"| O
+    D -->|"Summary"| O
+
+    E["No Direct Sharing<br/>Between Agents"] -..- A
+    E -..- B
+    E -..- C
+    E -..- D
+
+    style O fill:#0B1E3D,stroke:#0B1E3D,color:#ffffff
+    style A fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style B fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style C fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style D fill:#F0F9FF,stroke:#0891B2,stroke-width:2px,color:#0B1E3D
+    style E fill:#c4a74a,stroke:#c4a74a,color:#ffffff

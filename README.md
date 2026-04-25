@@ -17,7 +17,7 @@ Context engineering is the discipline of designing, assembling, and managing eve
 | 3 | [**RAG from Scratch**](day_03/) | WSCI framework, RAG pipeline end-to-end, chunking strategies, hybrid retrieval (dense + BM25 + RRF), cross-encoder reranking | :white_check_mark: [PDF](https://di37.github.io/context-engineering-bootcamp/day_03_notes.pdf) |
 | 4 | [**Tools, MCP & Agents**](day_04/) | Tool schema design, Model Context Protocol (MCP), JIT instructions, ReAct agent loop | :white_check_mark: [PDF](https://di37.github.io/context-engineering-bootcamp/day_04_notes.pdf) |
 | 5 | [**Context Engineering Failure Modes**](day_05/) | Context bloat, context rot, context poisoning, context clash, context distraction, context confusion, context drift, diagnostic framework | :white_check_mark: [PDF](https://di37.github.io/context-engineering-bootcamp/day_05_notes.pdf) |
-| 6 | **Multi-agent Context Management** | AGENTS.md, compression techniques (summarization, clearing, trimming, hierarchical), auto-compaction, multi-agent isolation, token budgets | :construction: In progress |
+| 6 | [**Multi-Agent Context Management**](day_06/) | AGENTS.md, compression, isolation, sub-agent architecture, central brain pattern, fan-out/fan-in, sequential pipelines | :white_check_mark: [PDF](https://di37.github.io/context-engineering-bootcamp/day_06_notes.pdf) |
 | 7 | **Memory Management** | Episodic / semantic / procedural memory, windowing & summarization strategies, memory decay, cross-session persistence | :construction: In progress |
 
 Other contents will be updated in the table as we continue to progress. 
@@ -59,12 +59,21 @@ context-engineering-bootcamp/
 │   ├── illustrations/
 │   ├── mermaid/
 │   └── drawings/
-└── day_05/
-    ├── day_05_notes.typ
-    ├── day_05_notes.pdf
+├── day_05/
+│   ├── day_05_notes.typ
+│   ├── day_05_notes.pdf
+│   ├── brand.typ
+│   ├── references.bib
+│   ├── illustrations/
+│   └── drawings/
+└── day_06/
+    ├── day_06_notes.typ
+    ├── day_06_notes.pdf
+    ├── central_brain_pattern.*
     ├── brand.typ
     ├── references.bib
     ├── illustrations/
+    ├── mermaid/
     └── drawings/
 ```
 
